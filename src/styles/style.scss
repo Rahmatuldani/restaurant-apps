@@ -108,13 +108,54 @@ main {
         background-color: #fff;
         border-radius: 12px;
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .content__heading {
+            width: 100%;
             font-weight: normal;
             border-bottom: 2px solid black;
             text-align: center;
             padding-bottom: 1rem;
             margin-bottom: 1rem;
+        }
+
+        input {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+        }
+    }
+}
+
+.card {
+    border: 2px solid #000;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+
+    .card-badge {
+        background-color: aqua;
+        display: inline-block;
+        padding: 0.5rem;
+        position: absolute;
+        top: 15px;
+    }
+
+    .card-body {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .card-title a{
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            text-decoration: none;
         }
     }
 }

@@ -1,36 +1,70 @@
 @media screen and (min-width: 650px) {
-    .app-bar {
-        grid-template-columns: 1fr auto;
-        padding: 8px 32px;
+  .app-bar {
+    grid-template-columns: 1fr auto;
+    padding: 8px 32px;
 
-        .app-bar__brand h1 {
-                font-size: 1.5em;
-        }
-
-        .app-bar__menu {
-            display: none;
-        }
-
-        .app-bar__navigation {
-            position: static;
-            width: 100%;
-        }
-        
-        .app-bar__navigation ul li {
-            display: inline-block;
-
-            a {
-                display: inline-block;
-                width: 120px;
-                text-align: center;
-                margin: 0;
-            }
-        }
+    .app-bar__brand h1 {
+      font-size: 1.5em;
     }
 
-    #jumbotron {
-        height: 50vh;
+    .app-bar__menu {
+      display: none;
     }
+
+    .app-bar__navigation {
+      position: static;
+      width: 100%;
+    }
+
+    .app-bar__navigation ul li {
+      display: inline-block;
+
+      a {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
+        margin: 0;
+      }
+    }
+  }
+
+  #jumbotron {
+    height: 50vh;
+    justify-content: center;
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+
+      h2 {
+        font-size: 40px;
+      }
+
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+
+  main {
+    padding: 5rem;
+
+    .content {
+      .content__heading {
+        font-size: 30px;
+        width: 60%;
+      }
+
+      input {
+        width: 50%;
+      }
+    }
+  }
+
+  .card {
+    width: 300px;
+    height: fit-content;
+  }
 }
 @media screen and (min-width: 800px) {
   .app-bar .app-bar__brand h1 {
@@ -55,4 +89,3 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
-

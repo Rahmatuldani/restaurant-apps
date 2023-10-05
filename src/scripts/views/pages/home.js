@@ -1,16 +1,23 @@
 const Home = {
   async render() {
-    return `
-        <div class="content">
-          <h2 class="content__heading">Explore Restaurant</h2>
-          <div id="restaurants" class="restaurants">
-          </div>
+    const element = document.createElement('div');
+    element.className = 'content';
+    element.innerHTML = `
+      <h3 class="content__heading">Explore Restaurant</h3>
+      <div id="restaurants" class="restaurants">
+        <div class="loading">
+          Memuat ...
         </div>
-      `;
+      </div>
+    `;
+    return element;
   },
 
   async afterRender() {
-    console.log('test');
+    const restaurantsList = document.querySelector('#restaurants');
+    setTimeout(() => {
+      restaurantsList.innerHTML = 'Restaurant list';
+    }, 3000);
   },
 };
 

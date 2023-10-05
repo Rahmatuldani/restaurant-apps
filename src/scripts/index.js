@@ -1,5 +1,6 @@
 import App from './views/app';
 import '../styles/style.scss';
+import '../styles/responsive.scss';
 
 const app = new App({
   button: document.querySelector('#hamburgerButton'),

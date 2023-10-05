@@ -7,6 +7,11 @@ const DrawerInitiator = {
     content.addEventListener('click', (event) => {
       this._closeDrawer(event, drawer);
     });
+
+    const jumbotron = document.querySelector('#jumbotron');
+    jumbotron.addEventListener('click', (event) => {
+      this._closeDrawer(event, drawer);
+    });
   },
 
   _toggleDrawer(event, drawer) {

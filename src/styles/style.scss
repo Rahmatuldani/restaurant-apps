@@ -124,8 +124,17 @@ main {
         input {
             width: 80%;
             padding: 8px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             border-radius: 12px;
+        }
+
+        .restaurants {
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-evenly;
+            margin-bottom: 1rem;
         }
     }
 }
@@ -135,6 +144,11 @@ main {
     border-radius: 12px;
     overflow: hidden;
     position: relative;
+    
+    .card-image {
+        height: 180px;
+        overflow: hidden;
+    }
 
     .card-badge {
         background-color: aqua;
@@ -197,7 +211,7 @@ footer {
 }
 
 footer p {
-    margin-top: 16px;
+    padding-bottom: 18px;
     text-align: center;
     color: #aaaaaa;
 }

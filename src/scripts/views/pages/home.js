@@ -1,27 +1,37 @@
-import Card from '../components/card';
+import RestaurantView from './restaurant/restaurant-view';
+import RestaurantSource from '../../data/restaurantSource';
+import RestaurantShow from './restaurant/restaurant-show';
+import RestaurantSearch from './restaurant/restaurant-search';
+
+const view = new RestaurantView();
 
 const Home = {
   async render() {
-    const element = document.createElement('div');
-    element.className = 'content';
-    element.innerHTML = `
-      <h3 class="content__heading">Explore Restaurant</h3>
-      <input type="text" id="query" placeholder="Search restaurant"/>
-      <div id="restaurants" class="restaurants">
-        <div class="loading">
-          Memuat ...
-        </div>
-      </div>
-    `;
-    return element;
+    return view.getTemplate();
   },
 
   async afterRender() {
-    const restaurantsList = document.querySelector('#restaurants');
-    setTimeout(() => {
-      restaurantsList.innerHTML = '';
-      restaurantsList.appendChild(Card());
-    }, 500);
+    new RestaurantShow({ view, restaurants: RestaurantSource });
+    new RestaurantSearch({ view, restaurants: RestaurantSource });
+    // const restaurantsList = document.querySelector('#restaurants');
+    // const restaurants = await RestaurantSource.getAll();
+
+    // if (restaurants.code === 'success') {
+    //   restaurantsList.innerHTML = '';
+
+    //   restaurants.data.forEach((restaurant) => {
+    //     restaurantsList.appendChild(Card(restaurant));
+    //   });
+    // }
+
+    // const search = document.querySelector('#query');
+    // search.addEventListener('keyup', async (event) => {
+    //   const searchRestaurants = await RestaurantSource.searchRestaurant(event.target.value);
+    //   restaurantsList.innerHTML = '';
+    //   searchRestaurants.data.forEach((restaurant) => {
+    //     restaurantsList.appendChild(Card(restaurant));
+    //   });
+    // });
   },
 };
 

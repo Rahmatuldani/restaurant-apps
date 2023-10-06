@@ -47,7 +47,8 @@
   }
 
   main {
-    padding: 5rem;
+    padding: 4rem 5rem;
+    padding-bottom: 1rem;
 
     .content {
       .content__heading {
@@ -63,7 +64,7 @@
 
   .card {
     width: 300px;
-    height: fit-content;
+    height: 350px;
   }
 }
 @media screen and (min-width: 800px) {
@@ -73,19 +74,19 @@
 }
 
 @media screen and (min-width: 850px) {
-  .movies {
+  .restaurans {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media screen and (min-width: 1200px) {
-  .movies {
+  .restaurans {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media screen and (min-width: 1600px) {
-  .movies {
+  .restaurans {
     grid-template-columns: repeat(5, 1fr);
   }
 }

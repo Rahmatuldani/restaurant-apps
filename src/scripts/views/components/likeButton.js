@@ -29,7 +29,7 @@ const LikeButton = {
   _renderLike() {
     this._likeButtonContainer.innerHTML = `
             <button aria-label="like this restaurant" id="likeButton" class="like">
-                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
             </button>
         `;
 
@@ -43,7 +43,7 @@ const LikeButton = {
   _renderLiked() {
     this._likeButtonContainer.innerHTML = `
             <button aria-label="unlike this restaurant" id="likeButton" class="like">
-                <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                <i class="fa fa-heart" aria-hidden="true"></i>
             </button>
         `;
 

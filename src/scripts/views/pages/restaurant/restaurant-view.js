@@ -1,22 +1,18 @@
 import Card from '../../components/card';
 
 class RestaurantView {
-  constructor() {
-    this._content = document.createElement('div');
-    this._content.className = 'content';
-  }
-
-  getTemplate() {
-    this._content.innerHTML = `
-          <h3 class="content__heading">Explore Restaurant</h3>
-          <input type="text" id="query" placeholder="Search restaurant"/>
-          <div id="restaurants" class="restaurants">
-            <div class="loading">
-              Memuat ...
-            </div>
+  getTemplate(title) {
+    return `
+      <div class="content">
+        <h3 class="content__heading">${title}</h3>
+        <input type="text" id="query" placeholder="Search restaurant"/>
+        <div id="restaurants" class="restaurants">
+          <div class="loading">
+            Memuat ...
           </div>
-        `;
-    return this._content;
+        </div>
+      </div>
+    `;
   }
 
   showRestaurants(restaurants) {

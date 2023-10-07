@@ -29,7 +29,7 @@ const Card = (data = {}) => {
     <div class="card-body">
       <div class="card-rating">Rating : ${data.rating || '0'}</div>
       <div class="card-title">
-        <a href="#!">${data.name || 'Card Title'}</a>
+        <a href="/#/detail/${data.id}">${data.name || 'Card Title'}</a>
       </div>
       <div class="card-text">${textSplit(data.description) || 'Card Text'}</div>
     </div>

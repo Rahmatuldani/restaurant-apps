@@ -1,4 +1,5 @@
 import App from './views/app';
+import 'regenerator-runtime';
 import '../styles/style.scss';
 import '../styles/responsive.scss';
 
@@ -14,5 +15,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', async () => {
   app.renderPage();
-//   await swRegister();
+  // await swRegister();
 });

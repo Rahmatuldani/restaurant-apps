@@ -51,6 +51,9 @@
     padding-bottom: 1rem;
 
     .content {
+      width: 90%;
+      max-width: 1200px;
+
       .content__heading {
         font-size: 30px;
         width: 60%;
@@ -60,6 +63,37 @@
         width: 50%;
       }
     }
+
+    .detail-content {
+      align-items: center;
+      
+      section {
+        width: 100%;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: auto auto;
+
+        .section-header {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+
+        &#reviews {
+          display: flex;
+
+          .reviews {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .customerReview {
+              grid-column-start: 1;
+              grid-column-end: 3;
+            }
+          }
+        }
+      }
+    }
+
   }
 
   .card {
@@ -67,6 +101,7 @@
     height: 350px;
   }
 }
+
 @media screen and (min-width: 800px) {
   .app-bar .app-bar__brand h1 {
     font-size: 2em;

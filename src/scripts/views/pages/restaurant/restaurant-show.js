@@ -8,11 +8,23 @@ class RestaurantShow {
 
   async _showRestaurants() {
     const restaurants = await this._restaurants.getAll();
-    this._displayRestaurants(restaurants.data);
+    if (restaurants.length <= 0) {
+      return this._displayNoneRestaurants();
+    }
+
+    if (restaurants.data === undefined) {
+      return this._displayRestaurants(restaurants);
+    }
+
+    return this._displayRestaurants(restaurants.data);
   }
 
   _displayRestaurants(restaurants) {
-    this._view.showRestaurants(restaurants);
+    return this._view.showRestaurants(restaurants);
+  }
+
+  _displayNoneRestaurants() {
+    return this._view._getEmptyTemplate();
   }
 }
 

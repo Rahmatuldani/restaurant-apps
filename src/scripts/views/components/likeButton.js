@@ -1,28 +1,30 @@
-// import FavoriteRestaurant from '../../data/favorite-restaurant';
+import FavoriteRestaurant from '../../data/favoriteRestaurant';
 
 const LikeButton = {
   async init({ likeButtonContainer, restaurant }) {
     this._likeButtonContainer = likeButtonContainer;
-    this._restaurant = restaurant;
-
+    if (restaurant.data === undefined) {
+      this._restaurant = restaurant;
+    } else {
+      this._restaurant = restaurant.data;
+    }
     await this._renderButton();
   },
 
   async _renderButton() {
     const { id } = this._restaurant;
-    this._renderLike();
 
-    // if (await this._isRestaurantExist(id)) {
-    //   this._renderLiked();
-    // } else {
-    //   this._renderLike();
-    // }
+    if (await this._isRestaurantExist(id)) {
+      this._renderLiked();
+    } else {
+      this._renderLike();
+    }
   },
 
-//   async _isRestaurantExist(id) {
-//     const restaurant = await FavoriteRestaurant.getRestaurant(id);
-//     return !!restaurant;
-//   },
+  async _isRestaurantExist(id) {
+    const restaurant = await FavoriteRestaurant.getRestaurant(id);
+    return !!restaurant;
+  },
 
   _renderLike() {
     this._likeButtonContainer.innerHTML = `
@@ -31,11 +33,11 @@ const LikeButton = {
             </button>
         `;
 
-    // const likeButton = document.querySelector('#likeButton');
-    // likeButton.addEventListener('click', async () => {
-    //   await FavoriteRestaurant.putRestaurant(this._restaurant);
-    //   this._renderButton();
-    // });
+    const likeButton = document.querySelector('#likeButton');
+    likeButton.addEventListener('click', async () => {
+      await FavoriteRestaurant.putRestaurant(this._restaurant);
+      this._renderButton();
+    });
   },
 
   _renderLiked() {
@@ -45,11 +47,12 @@ const LikeButton = {
             </button>
         `;
 
-    // const likeButton = document.querySelector('#likeButton');
-    // likeButton.addEventListener('click', async () => {
-    //   await FavoriteRestaurant.deleteRestaurant(this._restaurant.id);
-    //   this._renderButton();
-    // });
+    const likeButton = document.querySelector('#likeButton');
+    likeButton.addEventListener('click', async () => {
+      console.log(this._restaurant.id);
+      await FavoriteRestaurant.deleteRestaurant(this._restaurant.id);
+      this._renderButton();
+    });
   },
 };
 

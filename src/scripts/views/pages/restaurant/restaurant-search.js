@@ -16,11 +16,20 @@ class RestaurantSearch {
     this._latestQuery = latestQuery.trim();
 
     const foundRestaurants = await this._restaurants.searchRestaurants(this._latestQuery);
-    if (foundRestaurants.data.length <= 0) {
-      this._showNotFoundRestaurants();
-    } else {
-      this._showFoundRestaurants(foundRestaurants.data);
+
+    if (foundRestaurants.data !== undefined) {
+      if (foundRestaurants.data.length <= 0) {
+        return this._showNotFoundRestaurants();
+      }
+
+      return this._showFoundRestaurants(foundRestaurants.data);
     }
+
+    if (foundRestaurants.length <= 0) {
+      return this._showNotFoundRestaurants();
+    }
+
+    return this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {

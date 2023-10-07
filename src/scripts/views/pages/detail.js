@@ -5,7 +5,7 @@ import Alert from '../components/alert';
 import LikeButton from '../components/likeButton';
 
 const renderDetail = (restaurant) => `
-    <div class="section-header">Detail</div>
+    <div class="section-header" tabindex="0">Detail</div>
     <div id="poster">
         <picture>
             <source 
@@ -18,11 +18,11 @@ const renderDetail = (restaurant) => `
         </picture>
     </div>
     <div id="content">
-        <p class="restaurant-name">${restaurant.name}</p>
-        <p><strong>Adress : </strong>${restaurant.address}, ${restaurant.city}</p>
-        <p><strong>Rating : </strong>${restaurant.rating}</p>
-        <p><strong>Category : </strong>${restaurant.categories.map((category) => category.name).join(', ')}</p>
-        <p><strong>Description : </strong>${restaurant.description}</p>
+        <p class="restaurant-name" tabindex="0">${restaurant.name}</p>
+        <p tabindex="0"><strong>Adress : </strong>${restaurant.address}, ${restaurant.city}</p>
+        <p tabindex="0"><strong>Rating : </strong>${restaurant.rating}</p>
+        <p tabindex="0"><strong>Category : </strong>${restaurant.categories.map((category) => category.name).join(', ')}</p>
+        <p tabindex="0"><strong>Description : </strong>${restaurant.description}</p>
     </div>
 `;
 
@@ -31,13 +31,13 @@ const renderMenus = (menus) => {
   const drinks = menus.drinks.map((drink) => `<li tabindex="0">${drink.name}</li>`).join('');
 
   return `
-        <div class="section-header">Menus</div>
+        <div class="section-header" tabindex="0">Menus</div>
         <div id="foods">
-            <p>Foods</p>
+            <p tabindex="0">Foods</p>
             <ul>${foods}</ul>    
         </div>
-        <div id="drinks">
-            <p>Drinks</p>
+        <div id="drinks" tabindex="0">
+            <p tabindex="0">Drinks</p>
             <ul>${drinks}</ul>    
         </div>
     `;
@@ -53,7 +53,7 @@ const renderReviews = (customerReviews) => {
   `).join('');
 
   return `
-    <div class="section-header">Reviews</div>
+    <div class="section-header" tabindex="0">Reviews</div>
     <form id="reviewForm">
         <label for="inputName">Name: </label>
         <input type="text" id="inputName" placeholder="Input Name" aria-label="input your name for your review" required/>

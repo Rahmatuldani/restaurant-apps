@@ -1,19 +1,21 @@
 import CONFIG from '../../global/config';
 
 const textSplit = (text) => {
-  const maxLength = 100;
-  let result = '';
-
-  if (text.length > maxLength) {
-    result = `${text.substring(0, maxLength)}...`;
-  }
-  return result;
+    const maxLength = 100;
+    let result = '';
+    if (text === undefined) {
+        return text;
+    }
+    if (text.length > maxLength) {
+        result = `${text.substring(0, maxLength)}...`;
+    }
+    return result;
 };
 
 const Card = (data = {}) => {
-  const element = document.createElement('div');
-  element.className = 'card';
-  element.innerHTML = `
+    const element = document.createElement('div');
+    element.className = 'card';
+    element.innerHTML = `
     <div class="card-image">
       <picture>
         <source 
@@ -34,7 +36,7 @@ const Card = (data = {}) => {
       <div class="card-text">${textSplit(data.description) || 'Card Text'}</div>
     </div>
   `;
-  return element;
+    return element;
 };
 
 export default Card;

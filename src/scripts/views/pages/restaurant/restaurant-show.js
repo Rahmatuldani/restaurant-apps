@@ -1,31 +1,31 @@
 class RestaurantShow {
-  constructor({ view, restaurants }) {
-    this._view = view;
-    this._restaurants = restaurants;
+    constructor({ view, restaurants }) {
+        this._view = view;
+        this._restaurants = restaurants;
 
-    this._showRestaurants();
-  }
-
-  async _showRestaurants() {
-    const restaurants = await this._restaurants.getAll();
-    if (restaurants.length <= 0) {
-      return this._displayNoneRestaurants();
+        this._showRestaurants();
     }
 
-    if (restaurants.data === undefined) {
-      return this._displayRestaurants(restaurants);
+    async _showRestaurants() {
+        const restaurants = await this._restaurants.getAll();
+        this._displayRestaurants(restaurants);
     }
 
-    return this._displayRestaurants(restaurants.data);
-  }
+    _displayRestaurants(restaurants) {
+        if (restaurants.length <= 0) {
+            return this._displayNoneRestaurants();
+        }
 
-  _displayRestaurants(restaurants) {
-    return this._view.showRestaurants(restaurants);
-  }
+        if (restaurants.data === undefined) {
+            return this._view.showRestaurants(restaurants);
+        }
 
-  _displayNoneRestaurants() {
-    return this._view._getEmptyTemplate();
-  }
+        return this._view.showRestaurants(restaurants.data);
+    }
+
+    _displayNoneRestaurants() {
+        return this._view._getEmptyTemplate();
+    }
 }
 
 export default RestaurantShow;

@@ -17,13 +17,17 @@
         "no-restricted-globals": 0,
         "linebreak-style": 0,
         "class-methods-use-this": 0,
-        "no-new": 0
+        "no-new": 0,
+        "indent": ["error", 4],
+        "semi": "error",
+        "quotes": ["warn", "single"]
     },
     "overrides": [
         {
-            "files": ["__tests__/**/*.test.js"],
+            "files": ["__tests__/**/*.test.js", "__tests__/**/*.js"],
             "rules": {
-                "no-undef": "off"
+                "no-undef": "off",
+                "import/prefer-default-export": "off"
             }
         }
     ]

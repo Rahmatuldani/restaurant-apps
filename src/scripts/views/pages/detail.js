@@ -27,10 +27,10 @@ const renderDetail = (restaurant) => `
 `;
 
 const renderMenus = (menus) => {
-  const foods = menus.foods.map((food) => `<li tabindex="0">${food.name}</li>`).join('');
-  const drinks = menus.drinks.map((drink) => `<li tabindex="0">${drink.name}</li>`).join('');
+    const foods = menus.foods.map((food) => `<li tabindex="0">${food.name}</li>`).join('');
+    const drinks = menus.drinks.map((drink) => `<li tabindex="0">${drink.name}</li>`).join('');
 
-  return `
+    return `
         <div class="section-header" tabindex="0">Menus</div>
         <div id="foods">
             <p tabindex="0">Foods</p>
@@ -44,7 +44,7 @@ const renderMenus = (menus) => {
 };
 
 const renderReviews = (customerReviews) => {
-  const reviews = customerReviews.map((review) => `
+    const reviews = customerReviews.map((review) => `
     <div class="reviews">
         <div class="customerName" tabindex="0">Name : ${review.name}</div>
         <div class="reviewDate" tabindex="0">Date : ${review.date}</div>
@@ -52,7 +52,7 @@ const renderReviews = (customerReviews) => {
     </div>
   `).join('');
 
-  return `
+    return `
     <div class="section-header" tabindex="0">Reviews</div>
     <form id="reviewForm">
         <label for="inputName">Name: </label>
@@ -67,8 +67,8 @@ const renderReviews = (customerReviews) => {
 };
 
 const Detail = {
-  async render() {
-    return `
+    async render() {
+        return `
         <div class="detail-content">
             <section id="detail"></section>
             <section id="menus"></section>
@@ -76,46 +76,46 @@ const Detail = {
             <div id="likeButtonContainer"></div>
         </div>
     `;
-  },
+    },
 
-  async afterRender() {
-    const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const restaurant = await RestaurantSource.detailRestaurant(url.id);
+    async afterRender() {
+        const url = UrlParser.parseActiveUrlWithoutCombiner();
+        const restaurant = await RestaurantSource.detailRestaurant(url.id);
 
-    LikeButton.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
-      restaurant,
-    });
+        LikeButton.init({
+            likeButtonContainer: document.querySelector('#likeButtonContainer'),
+            restaurant,
+        });
 
-    const detail = document.querySelector('#detail');
-    detail.innerHTML = renderDetail(restaurant.data);
+        const detail = document.querySelector('#detail');
+        detail.innerHTML = renderDetail(restaurant.data);
 
-    const menus = document.querySelector('#menus');
-    menus.innerHTML = renderMenus(restaurant.data.menus);
+        const menus = document.querySelector('#menus');
+        menus.innerHTML = renderMenus(restaurant.data.menus);
 
-    const reviews = document.querySelector('#reviews');
-    reviews.innerHTML = renderReviews(restaurant.data.customerReviews);
+        const reviews = document.querySelector('#reviews');
+        reviews.innerHTML = renderReviews(restaurant.data.customerReviews);
 
-    const form = document.querySelector('#reviewForm');
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
+        const form = document.querySelector('#reviewForm');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-      const name = document.querySelector('#inputName');
-      const review = document.querySelector('#inputReview');
-      const body = {
-        id: restaurant.data.id,
-        name: name.value,
-        review: review.value,
-      };
+            const name = document.querySelector('#inputName');
+            const review = document.querySelector('#inputReview');
+            const body = {
+                id: restaurant.data.id,
+                name: name.value,
+                review: review.value,
+            };
 
-      const newReview = await RestaurantSource.addReview(body);
-      if (newReview.code === 'error') {
-        Alert(newReview.data);
-      } else {
-        reviews.innerHTML = renderReviews(newReview.data);
-      }
-    });
-  },
+            const newReview = await RestaurantSource.addReview(body);
+            if (newReview.code === 'error') {
+                Alert(newReview.data);
+            } else {
+                reviews.innerHTML = renderReviews(newReview.data);
+            }
+        });
+    },
 };
 
 export default Detail;

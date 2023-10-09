@@ -1,7 +1,15 @@
-import App from './views/app';
+/* eslint-disable no-unused-vars */
 import 'regenerator-runtime';
 import '../styles/style.scss';
 import '../styles/responsive.scss';
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
+import App from './views/app';
+import swRegister from './utils/sw-register';
+
+const START = 10;
+const NUMBER_OF_IMAGES = 100;
 
 const app = new App({
     button: document.querySelector('#hamburgerButton'),
@@ -15,5 +23,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', async () => {
     app.renderPage();
-    // await swRegister();
+    await swRegister();
 });

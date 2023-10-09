@@ -22,16 +22,17 @@ const Card = (data = {}) => {
           type="image/png" 
           media="(min-width: 600px)" 
           width="100%" 
-          srcset="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.pictureId || 'https://picsum.photos/id/666/800/450?grayscale'}"
+          class="lazyload"
+          data-srcset="${CONFIG.BASE_IMAGE_URL_MEDIUM + data.pictureId || 'https://picsum.photos/id/666/800/450?grayscale'}"
         />
-        <img width="100%" src="${CONFIG.BASE_IMAGE_URL_SMALL + data.pictureId || 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${data.name || 'card-image'}">
+        <img width="100%" class="lazyload" data-src="${CONFIG.BASE_IMAGE_URL_SMALL + data.pictureId || 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${data.name || 'card-image'}">
       </picture>
     </div>
     <div class="card-badge">${data.city || 'Unknown'} City</div>
     <div class="card-body">
       <div class="card-rating">Rating : ${data.rating || '0'}</div>
       <div class="card-title">
-        <a href="/#/detail/${data.id}">${data.name || 'Card Title'}</a>
+        <a href="/#/detail/${data.id}" rel="noreferrer">${data.name || 'Card Title'}</a>
       </div>
       <div class="card-text">${textSplit(data.description) || 'Card Text'}</div>
     </div>

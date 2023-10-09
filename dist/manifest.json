@@ -1,0 +1,55 @@
+{
+  "icons": [
+    {
+      "src": "/assets/icon_512x512.7b99982acd1ce935e8bb090d12863bdd.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/icons/icon_512x512.b4964ff4c8349ac646a2bdeae7f62d75.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon_256x256.4dfd15af5a961f0ad27f1df67891a202.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon_192x192.d91fd6518e1642b2201cf60f2ba7215d.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon_128x128.19699403193aca13adb1844294ab4c53.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon_64x64.e0664975a6c0580501ab4b768d08506b.png",
+      "sizes": "64x64",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/icon_32x32.70ac4bcb4b1ee3478c8d296be8df2c9d.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "name": "Restaurant Apps Lite",
+  "short_name": "Restaurant Lite",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "id": "restaurant-apps-lite-pwa-1",
+  "description": "Free Catalogue Restaurant for you",
+  "background_color": "#ffffff",
+  "theme_color": "#D84315"
+}

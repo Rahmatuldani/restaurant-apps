@@ -187,7 +187,7 @@ var App = /*#__PURE__*/function () {
     key: "renderPage",
     value: function () {
       var _renderPage = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
-        var url, page;
+        var url, page, skipLinkElem;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
@@ -200,6 +200,13 @@ var App = /*#__PURE__*/function () {
               _context.next = 7;
               return page.afterRender();
             case 7:
+              skipLinkElem = document.querySelector('.skip-link');
+              skipLinkElem.addEventListener('click', function (event) {
+                event.preventDefault();
+                console.log('click');
+                document.querySelector('#mainContent').focus();
+              });
+            case 9:
             case "end":
               return _context.stop();
           }

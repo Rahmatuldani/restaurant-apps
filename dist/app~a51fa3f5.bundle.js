@@ -364,7 +364,7 @@ var NUMBER_OF_IMAGES = 100;
 var app = new _views_app__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z({
   button: document.querySelector('#hamburgerButton'),
   drawer: document.querySelector('#navigationDrawer'),
-  content: document.querySelector('#mainContent')
+  content: document.querySelector('main')
 });
 window.addEventListener('hashchange', function () {
   app.renderPage();

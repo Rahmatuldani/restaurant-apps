@@ -14,7 +14,7 @@ const NUMBER_OF_IMAGES = 100;
 const app = new App({
     button: document.querySelector('#hamburgerButton'),
     drawer: document.querySelector('#navigationDrawer'),
-    content: document.querySelector('#mainContent'),
+    content: document.querySelector('main'),
 });
 
 window.addEventListener('hashchange', () => {

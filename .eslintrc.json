@@ -24,7 +24,7 @@
     },
     "overrides": [
         {
-            "files": ["__tests__/**/*.test.js", "__tests__/**/*.js"],
+            "files": ["__tests__/**/*.test.js", "__tests__/**/*.js", "e2e/**/*.test.js"],
             "rules": {
                 "no-undef": "off",
                 "import/prefer-default-export": "off"

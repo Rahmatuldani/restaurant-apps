@@ -3,6 +3,7 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { default: ImageminWebpackPlugin } = require('imagemin-webpack-plugin');
 const imageminMozjpeg = require('imagemin-mozjpeg');
+const imageminWebp = require('imagemin-webp');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
@@ -69,6 +70,9 @@ module.exports = merge(common, {
                 imageminMozjpeg({
                     quality: 50,
                     progressive: true,
+                }),
+                imageminWebp({
+                    quality: 50,
                 }),
             ],
         }),

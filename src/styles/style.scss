@@ -286,12 +286,13 @@ main {
                 input,
                 textarea {
                     margin-bottom: 1rem;
-                    padding: 8px;
                     border-radius: 8px;
+                    min-width: 44px;
+                    min-height: 44px;
                 }
 
                 textarea {
-                    height: 50px;
+                    height: 80px;
                 }
 
                 button {
